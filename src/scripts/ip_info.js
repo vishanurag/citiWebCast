@@ -2,7 +2,7 @@
 
 async function  ip_tracker() {
 
-    let url = "https://ipinfo.io/json?" + //YOUR API TOKEN ;
+    let url = "https://ipinfo.io/json?" + //YOUR IPINFO API TOKEN ;
     let response = await fetch(url);
     let ip_data = await response.json();
 
