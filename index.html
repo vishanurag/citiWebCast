@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cityWebCast - Weather</title>
+    <meta name="author" content="Anurag Vishwakarma">
+    <meta name="keywords" content="city, cityweb, cityWebCast, Weather Forcast, Anurag, Anurag Vishwakarma, ASH, ASHStudy, Web, Web Development, Gwalior, Indore, Coding, Programming, polygwalior, DBRAPC Gwalior, Weather, Chlimate, Temperature, Wind speed, humidity. Moisture, API">
+    <meta name="description" content="This is a Website that provides the Weather Information of various Cities according to the users.">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="./src/css/bootstrap_min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/css/style.css">
+  </head>
+  <body>
+    
+    <section id="mainArea_Window" class="mainArea_Window top-0">
+
+      <div class="logoBox p-2 fs-1" title="cityWebCast">
+        <span class="text-white">city</span>
+        <span class="text-warning logo_web">eb</span>
+        <span class="text-info logo_cast">ast</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud-sun webCastLogo_Icon" viewBox="0 0 16 16">
+            <path d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .624.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .51-.375A3.502 3.502 0 0 1 7 8zm4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5h-.027z"/>
+            <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0v-1zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708l.707-.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708l-.708-.707zm1.734 3.374a2 2 0 1 1 3.296 2.198c.199.281.372.582.516.898a3 3 0 1 0-4.84-3.225c.352.011.696.055 1.028.129zm4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377zM14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
+          </svg>
+        </span>
+      </div>
+
+        <div class="container col-lg-6 py-3">
+            <input type="text" placeholder="Enter City Name" name="cityname" id="cityName" class="form-control my-2  " oninput="checkWeather(this.value)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" id="loadingArrowCircle" class="bi fw-bolder loadingArrowCircle bi-arrow-clockwise" viewBox="0 0 16 16" onclick="checkWeather(cityName.value)" title="Reload">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+              </svg>
+        </div>
+
+        <div id="weather_Details" class="container my-3 dNone"> <!--dNone   please include it in this container div-->
+          <div id="cityName_Output" class="my-2 text-center fs-2 cityName_Output">
+            <!--Results will Rendered Over Here-->
+          </div>
+          <div class="temperature_Box d-flex  text-center">
+            <div id="temp" title="Current Temperature"><!--Results will Rendered Over Here--></div>
+            <div id="temp_UnitBox" class="tempUnit my-5" onclick="changeTempUnit()">
+              &deg;C
+            </div>
+          </div>
+
+          <div class="container d-flex justify-content-evenly text-light my-5">
+            <div class="extradetails humidity_Box d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+                <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+              </svg>
+              <div  class="fs-5">Humidity</div>
+              <div id="humidity" class="fs-1 fw-medium" title="Current Humidity/Moisture in air"><!--Results will Rendered Over Here-->%</div>
+            </div>
+            <div class="extradetails windSpeed_Box d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+              </svg>
+              <div  class="fs-5">Wind Speed</div>
+              <div id="wind_speed" class="fs-1 fw-medium" title="Current WindSpeed in m/s"><!--Results will Rendered Over Here--> m/s</div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <footer  class="web_Footer">
+      <div id="web_Footer" class="footerBG"></div>
+      <div class="container footer_Content text-light d-flex  ">
+        <div class="container py-4 footer_part1 d-flex ">
+          <div class="creator ">
+            Created by: <a href="https://vcma.rf.gd/Portfolio/" title="Anurag Vishwakarma Portfolio">Anurag Vishwakarma</a>
+          </div>
+          <div class="other_links d-flex justify-content-evenly">
+            <a href="https://github.com/vishanurag/cityWebCast" class="gitHub_repo" title="cityWebCast GitHub_repo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/anuragvishwakarma" class="linkedin_profile" title="Anurag Vishwakarma Linkedin Polygwalior">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              </svg>
+            </a>
+            <a href="https://ashstudy.rf.gd" class="other_profile" title="ASHStudy Website">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-browser-edge" viewBox="0 0 16 16">
+                <path d="M9.482 9.341c-.069.062-.17.153-.17.309 0 .162.107.325.3.456.877.613 2.521.54 2.592.538h.002c.667 0 1.32-.18 1.894-.519A3.838 3.838 0 0 0 16 6.819c.018-1.316-.44-2.218-.666-2.664l-.04-.08C13.963 1.487 11.106 0 8 0A8 8 0 0 0 .473 5.29C1.488 4.048 3.183 3.262 5 3.262c2.83 0 5.01 1.885 5.01 4.797h-.004v.002c0 .338-.168.832-.487 1.244l.006-.006a.594.594 0 0 1-.043.041Z"/>
+                <path d="M.01 7.753a8.137 8.137 0 0 0 .753 3.641 8 8 0 0 0 6.495 4.564 5.21 5.21 0 0 1-.785-.377h-.01l-.12-.075a5.45 5.45 0 0 1-1.56-1.463A5.543 5.543 0 0 1 6.81 5.8l.01-.004.025-.012c.208-.098.62-.292 1.167-.285.129.001.257.012.384.033a4.037 4.037 0 0 0-.993-.698l-.01-.005C6.348 4.282 5.199 4.263 5 4.263c-2.44 0-4.824 1.634-4.99 3.49Zm10.263 7.912c.088-.027.177-.054.265-.084-.102.032-.204.06-.307.086l.042-.002Z"/>
+                <path d="M10.228 15.667a5.21 5.21 0 0 0 .303-.086l.082-.025a8.019 8.019 0 0 0 4.162-3.3.25.25 0 0 0-.331-.35c-.215.112-.436.21-.663.294a6.367 6.367 0 0 1-2.243.4c-2.957 0-5.532-2.031-5.532-4.644.002-.135.017-.268.046-.399a4.543 4.543 0 0 0-.46 5.898l.003.005c.315.441.707.821 1.158 1.121h.003l.144.09c.877.55 1.721 1.078 3.328.996Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="container footer_part2   ">
+          Weather Data Provided By <a href="https://api-ninjas.com/" class="text-info px-1">API Ninjas <img src="https://api-ninjas.com/favicon.ico" width="15" alt="API Ninjas"></a>
+        </div>
+        <div class="container footer_part2   ">
+         Copyright &copy; 2023 <a href="https://vcma.rf.gd/Portfolio" class="text-info px-1">Anurag Vishwakarma <img src="http://ashstudy.000webhostapp.com/anurag/Assets/icons/faviconA.ico" width="12" alt="Anurag Vishwakarma Portfolio"></a>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="./src/scripts/script.js"></script>
+    <script src="./src/scripts/unitConvertor.js"></script>
+    <script src="./src/scripts/ip_info.js"></script>
+    <script src="./src/scripts/bg_changing.js"></script>
+  </body>
+</html>
