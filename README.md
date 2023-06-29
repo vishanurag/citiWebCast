@@ -26,7 +26,7 @@ I have used these following tech for building the cityWebCast WebApp:
 - [API by IP Info]() - Used for tracing IP Information of the user.
 
 
-And of course citiWebCast  is open source with a [public repository](https://github.com/vishanurag/cityWebCast) on GitHub.
+And of course citiWebCast  is open source with a [public repository](https://github.com/vishanurag/citiWebCast) on GitHub.
 
 ## Installation
 
