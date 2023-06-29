@@ -1,10 +1,10 @@
-# [cityWebCast](https://citywebcast.web.app/) <img src="https://ashstudy.000webhostapp.com/anurag/Assets/icons/cloudSun_Icon.png" height="25px">
-## _This is the original repository of cityWebCast Weather App (WebApp)._
+# [citiWebCast](https://citiwebcast.web.app/) <img src="https://ashstudy.000webhostapp.com/anurag/Assets/icons/cloudSun_Icon.png" height="30px">
+## _This is the original repository of citiWebCast Weather App (WebApp)._
 
 [![Author](https://ashstudy.000webhostapp.com/anurag/Assets/icons/faviconA.ico)](https://vcma.rf.gd/Portfolio) Created by: [Anurag Vishwakarma](https://github.com/vishanurag)
 
 
-- This website is capable of  providing the current weather<img src="http://ashstudy.000webhostapp.com/anurag/Assets/icons/cloudSun_Icon.png" height="22px"> details of various cities accross the globe <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Earth_icon_2.png" height="22px">. 
+- This website is capable of  providing the current weather<img src="http://ashstudy.000webhostapp.com/anurag/Assets/icons/cloudSun_Icon.png" height="22px"> details of various cities accross the globe <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Earth_icon_2.png" height="20px">. 
 
 ## Features
 
@@ -18,18 +18,26 @@
 
 I have used these following tech for building the cityWebCast WebApp:
 
-- [HTMl] - HTML enhanced for web apps!
-- [CSS] - Used for styling the website.
-- [Javascript] - Used JS to make things functional.
-- [Bootstrap] - great UI boilerplate for modern web apps
-- [API by API Ninjas] - Feached the weather details.
-- [API by IP Info] - Used for tracing IP Information of the user.
+- [HTMl]() - HTML enhanced for web apps!
+- [CSS]() - Used for styling the website.
+- [Javascript]() - Used JS to make things functional.
+- [Bootstrap]() - great UI boilerplate for modern web apps
+- [API by API Ninjas]() - Feached the weather details.
+- [API by IP Info]() - Used for tracing IP Information of the user.
 
 
-And of course cityWebCast  is open source with a [public repository](https://github.com/vishanurag/cityWebCast) on GitHub.
+And of course citiWebCast  is open source with a [public repository](https://github.com/vishanurag/cityWebCast) on GitHub.
 
 ## Installation
 
-Because cityWebCast WebApp is build using simple technologies, this doesn't requires any Installation at all.
+Because citiWebCast WebApp is build using simple technologies, this doesn't requires any Installation at all.
 
 - Just run the index.html file to see the output.
+- But you need to add your own API Key from API NINJAS & API Token from IP Info.
+- Without the API keys & tokens you will not be able to use it in your local machine.  
+
+## Live Link
+
+This website is live at firebase hosting. Live link is given below.
+
+- https://citiwebcast.web.app/
